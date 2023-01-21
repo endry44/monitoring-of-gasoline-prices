@@ -1,0 +1,16 @@
+// Function to retrieve gasoline prices in Europe
+function getGasPrices() {
+    // Make an API call to retrieve the data
+    fetch("https://example.com/gas-prices/europe")
+        .then(response => response.json())
+        .then(data => {
+            // Loop through the data and print the prices
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i].country + ": " + data[i].price + " EUR/liter");
+            }
+        })
+        .catch(error => console.log(error));
+}
+
+// Run the function every hour
+setInterval(getGasPrices, 3600000);
